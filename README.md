@@ -8,5 +8,9 @@
 > **Discord Integration** - Webhoocks Logs & More!<br/>
 > **More...**<br/>
 
+<br/>
+<br/>
+<hr/>
+
 **The project will be made public soon!**
 
