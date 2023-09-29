@@ -8,18 +8,32 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 @main_bp.route('/register', methods=['GET', 'POST'])
 def register():
+    errors = {}
     if request.method == 'POST':
         data = request.form
         user_schema = UserSchema()
-        errors = user_schema.validate(data)
+        validation_errors = user_schema.validate(data)
+        if validation_errors:
+            errors.update(validation_errors)
+
+        existing_user = User.query.filter_by(name=data['name']).first()
+        if existing_user:
+            errors['name'] = 'Nazwa użytkownika jest już zajęta'
+
+        existing_user = User.query.filter_by(email=data['email']).first()
+        if existing_user:
+            errors['email'] = 'Adres e-mail jest już zajęty'
+
         if errors:
-            return jsonify(errors), 400
+            return render_template('register.html', errors=errors)
+
         hashed_password = generate_password_hash(data['password'], method='sha256')
         new_user = User(name=data['name'], email=data['email'], password=hashed_password)
         db.session.add(new_user)
         db.session.commit()
-        return 'Registered successfully'
-    return render_template('register.html')
+        return jsonify({'message': 'Registered successfully'})
+    return render_template('register.html', errors=errors)
+
 
 @main_bp.route('/login', methods=['GET', 'POST'])
 def login():

@@ -1,16 +1,158 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Login</title>
-</head>
-<body>
-    <h2>Login</h2>
-    <form method="POST">
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" required><br>
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password" required><br>
-        <input type="submit" value="Login">
-    </form>
-</body>
+<html lang="pl">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+        <style>
+            ::selection {
+                background-color: #87CEEB;
+                border-radius: 15px;
+            }
+            
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+            
+            body {
+                align-items: center;
+                justify-content: center;
+                background: linear-gradient(
+                    to bottom right,
+                    #87CEEB, 
+                    #FF69B4);
+                font-family: Helvetica, sans-serif;
+                display: flex;
+                font-size: 24px;
+                height: 100vh;
+                width: 100vw;
+            }
+            
+            form {
+                background: linear-gradient(
+                    to left,
+                    rgba(255, 255, 255, 0.05),
+                    rgba(255, 255, 255, 0.35)
+                );
+                max-width: 300px;
+                padding: 36px 24px;
+                text-align: center;
+                border-radius: 15px;
+                box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.3);
+            }
+            
+            .form__input-container {
+                position: relative;
+                margin-bottom: 32px;
+            }
+            
+            input,
+            button {
+                background: linear-gradient(
+                    to left,
+                    rgba(255, 255, 255, 0.1),
+                    rgba(255, 255, 255, 0.25)
+                );  
+                border: none;
+                border-radius: 18px;
+                box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.3);
+                color: white;
+                font-size: 24px;
+                padding: 12px 24px;
+                outline: none;
+                transition: .3s transform;
+            }
+            
+            input {
+                width: 100%;
+            }
+            
+            label {
+                color: white;
+                left: 24px;
+                top: 50%;
+                opacity: 0.4;
+                position: absolute;
+                transform: translateY(-50%);
+                transition: left .3s, opacity .3s;
+            }
+            
+            input:not(:placeholder-shown) + label,
+            input:focus + label {
+                left: 200px;
+                opacity: 0;
+            }
+            
+            button:hover {
+                transform: scale(1.1);
+                cursor: pointer;
+            }
+            
+            .form__spacer {
+                height: 2px;
+                background: rgba(255, 255, 255, 0.55);
+                margin-bottom: 32px;
+                margin: 0 auto 32px;
+                width: 80%;
+                border-radius: 15px;
+            }
+            
+            .form__icon {
+                border: solid 3px rgba(255, 255, 255, 0.6);
+                border-radius: 50%;
+                box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.3);
+                height: 72px;
+                width: 72px;
+                margin: 0 auto 24px;
+                position: relative;
+                overflow: hidden;
+            }
+            
+            .form__icon:before {
+                background: rgba(255, 255, 255, 0.55);
+                content: "";
+                height: 24px;
+                width: 64px;
+                display: block;
+                position: absolute;
+                bottom: 0;
+                border-radius: 50%;
+            }
+            
+            .form__icon:after {
+                background: rgba(255, 255, 255, 0.55);
+                content: "";
+                height: 24px;
+                width: 24px;
+                left: 50%; 
+                transform: translateX(-50%);
+                display: block;
+                position: absolute;
+                bottom: 50%;
+                border-radius: 50%;
+            }
+            
+            /* #c2eeff, #1696ff */
+        </style>
+
+		<form autocomplete="off" method="POST">
+            <div class="form__icon" aria-hidden="true"></div>
+			<div class="form__input-container" >
+                <input required="true" id="email" type="email"  name="email" placeholder=" " />
+				<label for="email">Email</label>
+                {{ if }}
+			</div>
+			<div class="form__input-container">
+                <input required="true" id="password" type="password" name="password" placeholder=" " />
+				<label for="password">Password</label>
+			</div>
+            <div class="form__spacer" aria-hidden="true"></div>
+            <input type="submit"></input>
+		</form>
+	</body>
 </html>

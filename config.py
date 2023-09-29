@@ -11,6 +11,7 @@ class Config():
     SECRET_KEY=os.environ.get('SECRET_KEY')
     SQLALCHEMY_DATABASE_URI=os.environ.get('SQLALCHEMY_DATABASE_URI')
     SQLALCHEMY_TRACK_MODIFICATIONS=False
+    
     DEBUG=True
     MAIL_SERVER="serwer2385933.home.pl"
     MAIL_PORT="587"
