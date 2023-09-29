@@ -8,8 +8,6 @@ from flask_caching import Cache
 from logging.config import dictConfig
 from backend.colors import gray,red,yellow,green
 from datetime import datetime
-from config import Discord
-from backend.assets.discord_handler import DiscordHandler
 from flask_mail import Mail,Message
 from flask import render_template
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required
@@ -18,7 +16,6 @@ import os
 db = SQLAlchemy()
 migrate = Migrate()
 cache = Cache(config={'CACHE_TYPE': 'simple'})
-dh = DiscordHandler(Discord.LOG_WEBHOOK_URL)
 mail = Mail()
 login_manager = LoginManager()
 
@@ -57,12 +54,30 @@ def create_app():
 
     coloredlogs.install(level='INFO', logger=app.logger, fmt='[%(asctime)s] %(levelname)-8s %(message)s')
     
+    # Extentions Initiation
+    db.init_app(app)
+    migrate.init_app(app,db)
+    cache.init_app(app)
+    mail.init_app(app)
+    login_manager.init_app(app)
+    
+    # DB Initiation
+    from backend.database.users_db import User
+    from backend.database.config_db import Config as cfg
+    
+    with app.app_context():
+        db.create_all()
+        import backend.init.config_init
+    
+    with app.app_context():
+        from backend.assets.discord_handler import log
+    
     # Page Entry Log
     @app.before_request
     def log_request_info():
         if not request.endpoint == None:
             try:
-                dh.log(f'Page Entry',"#3A94EE")
+                log(f'Page Entry',"#3A94EE")
             except Exception as e:
                 raise e
             app.logger.info('Page Entry - IP: %s, Endpoint: %s', request.remote_addr, request.endpoint)
@@ -87,17 +102,6 @@ def create_app():
             return render_template('/mails/confirm_register/index.html',name=name)
         except Exception as e:
             return str(e)
-
-    
-    # Extentions Initiation
-    db.init_app(app)
-    migrate.init_app(app,db)
-    cache.init_app(app)
-    mail.init_app(app)
-    login_manager.init_app(app)
-    
-    # DB Initiation
-    from backend.database.users_db import User
     
     # LM Initiation
     @login_manager.user_loader
@@ -106,7 +110,8 @@ def create_app():
     
     # WebServer Startup Webhook log
     if os.environ.get('RUN_ONCE') is None:
-        dh.log(f'Started web server...',"#3A94EE",web=False)
+        log(f'Started web server...',"#3A94EE",web=False)
         os.environ['RUN_ONCE'] = 'true'
+            
     
     return app

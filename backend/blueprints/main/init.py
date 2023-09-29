@@ -6,4 +6,8 @@ from backend import db
 def init():
     with current_app.app_context():
         db.create_all()
+        
+    # Config Initialization
+    from backend.init import config_init
+    
     return "OK!",200
