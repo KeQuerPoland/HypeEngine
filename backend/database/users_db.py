@@ -2,8 +2,9 @@ from backend import db
 from datetime import datetime,timedelta
 from marshmallow import Schema, fields, validate
 from backend.validators.date import validate_not_future_date
+from flask_login import UserMixin
 
-class User(db.Model):
+class User(db.Model,UserMixin):
     __name__ = 'users'
     
     # Main Data
@@ -24,9 +25,6 @@ class User(db.Model):
     email_verifed   =   db.Column(db.Boolean,nullable=False,default=False)
     account_locked  =   db.Column(db.Boolean,nullable=False,default=False)
     is_active       =   db.Column(db.Boolean,nullable=False,default=True)
-    
-    def get_id(self):
-        return self.id
 
 class UserSchema(Schema):
     id              =   fields.Int(dump_only=True)
