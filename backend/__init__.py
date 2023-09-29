@@ -58,10 +58,13 @@ def create_app():
     
     # Page Entry Log
     @app.before_request
-    async def log_request_info():
+    def log_request_info():
         if not request.endpoint == None:
+            try:
+                dh.log(f'Page Entry',"#3A94EE")
+            except Exception as e:
+                raise e
             app.logger.info('Page Entry - IP: %s, Endpoint: %s', request.remote_addr, request.endpoint)
-            await dh.log(f'Page Entry',"#3A94EE")
     
     # Watermark Initialization
     @app.after_request
@@ -98,5 +101,7 @@ def create_app():
     @login_manager.user_loader
     def load_user(user_id):
         return User.query.get(int(user_id))
+    
+    dh.log(f'Started web server...',"#3A94EE",web=False)
     
     return app

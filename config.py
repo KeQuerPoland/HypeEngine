@@ -23,7 +23,7 @@ class Config():
     
 class Discord():
     WEBHOOK_ENABLE=True
-    LOG_WEBHOOK_URL='https://discord.com/api/webhooks/1157324640222457909/yXtZT4kpeo8CQcd3nDPDO_trEB-hPALSPM-4MdScDHMllwuYEsElwBcQfPRo7paLSFZ7'
+    LOG_WEBHOOK_URL=r'https://discord.com/api/webhooks/1157324640222457909/yXtZT4kpeo8CQcd3nDPDO_trEB-hPALSPM-4MdScDHMllwuYEsElwBcQfPRo7paLSFZ7'
     
     DISCORD_LOGIN_ENABLE=False
     BOT_TOKEN=''
