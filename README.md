@@ -19,3 +19,6 @@
 
 **The project will be made public soon!**
 
+<hr/>
+
+**©️ Rights to style, name and logo reserved!**
