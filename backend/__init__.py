@@ -13,6 +13,7 @@ from backend.assets.discord_handler import DiscordHandler
 from flask_mail import Mail,Message
 from flask import render_template
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required
+import os
 
 db = SQLAlchemy()
 migrate = Migrate()
@@ -98,10 +99,14 @@ def create_app():
     # DB Initiation
     from backend.database.users_db import User
     
+    # LM Initiation
     @login_manager.user_loader
     def load_user(user_id):
         return User.query.get(int(user_id))
     
-    dh.log(f'Started web server...',"#3A94EE",web=False)
+    # WebServer Startup Webhook log
+    if os.environ.get('RUN_ONCE') is None:
+        dh.log(f'Started web server...',"#3A94EE",web=False)
+        os.environ['RUN_ONCE'] = 'true'
     
     return app
