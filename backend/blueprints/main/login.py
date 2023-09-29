@@ -29,7 +29,10 @@ def login():
             user = User.query.filter_by(email=data['email']).first()
             if not user or not check_password_hash(user.password, data['password']):
                 return 'Login Unsuccessful'
-            a = login_user(user)
+            try:
+                a = login_user(user)
+            except Exception as e:
+                print(e)
             return 'Login Successful'
         except Exception as e:
             print(e)
