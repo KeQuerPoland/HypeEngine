@@ -29,3 +29,6 @@ class Discord():
     BOT_TOKEN=''
     BOT_ID=''
     BOT_SECRET=''
+    
+    
+# HypeEngine Temp Config
