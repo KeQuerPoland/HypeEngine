@@ -16,5 +16,11 @@
 
 <br/>
 <hr/>
+<br/>
+
+> [Discord](https://discord.gg/GrKaVcDzbn)
+
+<br/>
+<hr/>
 
 **©️ Rights to style, name and logo reserved!**
