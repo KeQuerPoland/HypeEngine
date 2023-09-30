@@ -1,2 +1,6 @@
 flask
 flask_sqlalchemy
+flask_login
+discord_webhook
+flask_caching
+flask_mail
