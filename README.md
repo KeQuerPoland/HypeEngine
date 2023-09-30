@@ -19,6 +19,7 @@
 <br/>
 
 > [Discord](https://discord.gg/GrKaVcDzbn)
+> [BuyMeACoffe](https://www.buymeacoffee.com/hypeengine)
 
 <br/>
 <hr/>
