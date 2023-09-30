@@ -1,7 +1,7 @@
 ![HypeBanner](hype_banner.png)
 # HYPE ENGINE 0.3 BETA
 **OPEN-SOURCE FLASK ENGINE**
-<br/><br/>
+<br/><hr/><br/>
 
 ## 🔧 ADVANTAGES:
 > **Open Source** - You can change everything!<br/>
@@ -9,6 +9,8 @@
 > **Discord Integration** - Webhoocks Logs & More!<br/>
 > **More...**<br/>
 
+<br/>
+<hr/>
 <br/>
 
 ## 🔒 FUTURES:
