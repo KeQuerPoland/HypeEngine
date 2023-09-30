@@ -1,3 +1,4 @@
+![HypeBanner](hype_banner.png)
 # HYPE ENGINE 0.3 BETA
 **OPEN-SOURCE FLASK ENGINE**
 <br/><br/>
