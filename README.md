@@ -18,7 +18,7 @@
 <hr/>
 <br/>
 
-## 🔗 LINKI:
+## 🔗 LINKS:
 > [![Discord](https://img.shields.io/badge/-Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/GrKaVcDzbn) <br/>
 > [![BuyMeACoffe](https://img.shields.io/badge/-BuyMeACoffee-FF813F?style=for-the-badge&logo=buymeacoffee&logoColor=white)](https://www.buymeacoffee.com/hypeengine) <br/>
 
