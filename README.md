@@ -17,6 +17,4 @@
 <br/>
 <hr/>
 
-<hr/>
-
 **©️ Rights to style, name and logo reserved!**
