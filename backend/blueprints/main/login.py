@@ -1,7 +1,6 @@
 from flask import request, jsonify, render_template
 from backend.blueprints.main import main_bp
 from backend import db
-from config import Config
 from backend.database.users_db import User, UserSchema
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required
 from werkzeug.security import generate_password_hash, check_password_hash

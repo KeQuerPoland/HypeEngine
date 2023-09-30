@@ -1,10 +1,10 @@
 from flask_mail import Message
 from backend import mail
-from config import Config
+from backend.database.config_db import Config as cfg
 
 def send(title,recipient,author,html=None):
     msg = Message(title,
-        sender=author+"@"+Config.MAIL_SERVER_DOMAIN,
+        sender=author+"@"+cfg.get_by_name('MAIL_SERVER_DOMAIN'),
         recipients=recipient
     )
 
