@@ -2,4 +2,4 @@ from flask import Blueprint
 
 main_bp = Blueprint('main', __name__)
 
-from backend.blueprints.main import init,index,login
+from backend.blueprints.main import index,login
