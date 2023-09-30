@@ -13,16 +13,6 @@ class Config():
     SQLALCHEMY_TRACK_MODIFICATIONS=False
     DEBUG=True
 
-    #Mail Server
-    MAIL_SERVER="serwer2385933.home.pl"
-    MAIL_PORT="587"
-    MAIL_USERNAME="test@highaccounts.store"
-    MAIL_PASSWORD=r"test!!#%%"
-    MAIL_USE_TLS = True
-    MAIL_USE_SSL = False
-    MAIL_DEFAULT_SENDER = "test@highaccounts.store"
-    MAIL_SERVER_DOMAIN = "highaccounts.store"
-
 """
 class Discord():
     from backend.database.config_db import Config as cfg
