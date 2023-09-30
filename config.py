@@ -12,18 +12,8 @@ class Config():
     SQLALCHEMY_DATABASE_URI=os.environ.get('SQLALCHEMY_DATABASE_URI')
     SQLALCHEMY_TRACK_MODIFICATIONS=False
     DEBUG=True
+    
+    # More in DB.
 
-"""
-class Discord():
-    from backend.database.config_db import Config as cfg
-    
-    WEBHOOK_ENABLE=cfg.get_by_name('WEBHOOK_ENABLE')
-    LOG_WEBHOOK_URL=r'https://discord.com/api/webhooks/1157324640222457909/yXtZT4kpeo8CQcd3nDPDO_trEB-hPALSPM-4MdScDHMllwuYEsElwBcQfPRo7paLSFZ7'
-    
-    DISCORD_LOGIN_ENABLE=False
-    BOT_TOKEN=''
-    BOT_ID=''
-    BOT_SECRET=''
-"""    
     
 # HypeEngine Temp Config
