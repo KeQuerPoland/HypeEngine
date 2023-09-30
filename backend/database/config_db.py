@@ -3,9 +3,8 @@ from flask import current_app
 from datetime import datetime,timedelta
 from marshmallow import Schema, fields, validate
 from backend.validators.date import validate_not_future_date
-from flask_login import UserMixin
 
-class Config(db.Model, UserMixin):
+class Config(db.Model):
     __name__ = 'config'
     
     # Main Config
