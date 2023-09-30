@@ -22,4 +22,5 @@
 <hr/>
 <br/>
 
-**©️ Rights to style, name and logo reserved!**
+<center> ©️ Rights to style, name and logo reserved! </center>
+<center> HypeEngine™️ </center>
