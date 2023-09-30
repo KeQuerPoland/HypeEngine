@@ -12,7 +12,7 @@
 
 ## FUTURES:
 > **Discord Logging:**<br/>
-> ![Image with two webhook embeds](image.png)
+> ![Image with two webhook embeds](futeres_webhook_log.png)
 
 <br/>
 <hr/>
