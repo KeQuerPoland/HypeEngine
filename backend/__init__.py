@@ -10,14 +10,12 @@ from backend.colors import gray,red,yellow,green
 from datetime import datetime
 from flask_mail import Mail,Message
 from flask import render_template
-from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required
 import os
 
 db = SQLAlchemy()
 migrate = Migrate()
 cache = Cache(config={'CACHE_TYPE': 'simple'})
 mail = Mail()
-login_manager = LoginManager()
 
 def create_app():
     # Creating WebServer
@@ -59,7 +57,6 @@ def create_app():
     migrate.init_app(app,db)
     cache.init_app(app)
     mail.init_app(app)
-    login_manager.init_app(app)
     
     # DB Initiation
     from backend.database.users_db import User
@@ -110,11 +107,6 @@ def create_app():
             return render_template('/mails/confirm_register/index.html',name=name)
         except Exception as e:
             return str(e)
-    
-    # LM Initiation
-    @login_manager.user_loader
-    def load_user(user_id):
-        return User.query.get(int(user_id))
     
     # WebServer Startup Webhook log
     if os.environ.get('RUN_ONCE') is None:
