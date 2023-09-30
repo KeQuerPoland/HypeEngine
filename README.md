@@ -35,9 +35,9 @@
 
 <div align="center">
 
-©️ Rights to style, name and logo reserved!
+**©️ Rights to style, name and logo reserved!**
 
-HypeEngine™️
+**HypeEngine™️**
 
 </div>
 
