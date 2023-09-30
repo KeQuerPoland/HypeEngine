@@ -110,7 +110,8 @@ def create_app():
     
     # WebServer Startup Webhook log
     if os.environ.get('RUN_ONCE') is None:
-        log(f'Started web server...',"#3A94EE",web=False)
+        with app.app_context():
+            log(f'Started web server...',"#3A94EE",web=False)
         os.environ['RUN_ONCE'] = 'true'
             
     

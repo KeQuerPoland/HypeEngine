@@ -11,17 +11,17 @@ class Config(db.Model, UserMixin):
     # Main Config
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), nullable=False)
-    value = db.Column(db.String(50), nullable=False)
+    value = db.Column(db.String(150), nullable=False)
 
     @staticmethod
     def get_by_name(name):
         with current_app.app_context():
             a=Config.query.filter_by(name=name).first()
+            a=a.value
             if a == "0":
                 a=False
             elif a == "1":
                 a= True
-            print(a)
             return a
 
     @staticmethod
