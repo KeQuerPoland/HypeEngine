@@ -62,6 +62,16 @@ def create_app():
     from backend.database.users_db import User
     from backend.database.config_db import Config as cfg
     
+    from sqlalchemy.exc import OperationalError
+    from sqlalchemy import text
+
+    with app.app_context():
+        try:
+            db.session.execute(text('SELECT 1'))
+        except Exception as e:
+            app.logger.error(f"Database connection error: {e}")
+            os._exit(0)
+
     with app.app_context():
         db.create_all()
         import backend.init.config_init
