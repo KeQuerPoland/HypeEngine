@@ -62,6 +62,7 @@ def create_app():
     
     # DB Initiation
     from backend.database.users_db import User
+    from backend.database.pages_db import Pages
     from backend.database.config_db import Config as cfg
     
     from sqlalchemy.exc import OperationalError
