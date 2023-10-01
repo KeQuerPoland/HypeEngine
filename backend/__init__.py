@@ -26,8 +26,10 @@ def create_app():
     
     # BluePrint Initiation
     from backend.blueprints.main import main_bp
+    from backend.blueprints.custom_handler import custom_bp
     
     app.register_blueprint(main_bp)
+    app.register_blueprint(custom_bp)
     
     # Logging Init
     werkzeug_logger = logging.getLogger('werkzeug')
