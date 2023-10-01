@@ -1,4 +1,4 @@
-from flask import Flask,request
+from flask import Flask,request,session,g
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from config import Config
@@ -67,6 +67,9 @@ def create_app():
     
     from sqlalchemy.exc import OperationalError
     from sqlalchemy import text
+    
+    with app.app_context():
+        import backend.assets.login_handler as LoginHandler
 
     with app.app_context():
         try:
@@ -81,6 +84,24 @@ def create_app():
     
     with app.app_context():
         from backend.assets.discord_handler import log
+        
+    @app.context_processor
+    def inject_user():
+        with app.app_context():
+            from backend.assets.login_handler import current_user
+            return dict(current_user=current_user())
+
+        
+    @app.before_request
+    def load_logged_in_user():
+        with app.app_context():
+            user_id = session.get('user_id')
+
+            if user_id is None:
+                g.user = None
+            else:
+                g.user = User.query.get(user_id)
+
     
     # Page Entry Log
     @app.before_request

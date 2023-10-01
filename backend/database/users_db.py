@@ -24,6 +24,13 @@ class User(db.Model):
     email_verifed   =   db.Column(db.Boolean,nullable=False,default=False)
     account_locked  =   db.Column(db.Boolean,nullable=False,default=False)
     is_active       =   db.Column(db.Boolean,nullable=False,default=True)
+    
+    @property
+    def is_authenticated(self):
+        return True
+    
+    def __repr__(self):
+        return {'name:': self.name, 'email': self.email}
 
 class UserSchema(Schema):
     id              =   fields.Int(dump_only=True)
