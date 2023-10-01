@@ -6,8 +6,9 @@ def login_user(email, password):
     with current_app.app_context():
         user = User.query.filter_by(email=email).first()
         if user and check_password_hash(user.password, password):
-            session['user_id'] = user.id
-            return True
+            if user.account_locked != None:
+                session['user_id'] = user.id
+                return True
         return False
 
 def logout_user():
@@ -26,7 +27,6 @@ class CurrentUser:
     def load_user(self):
         if self.id is not None:
             user = User.query.get(self.id)
-            print(user.__dict__) 
             return user
         else:
             return None
