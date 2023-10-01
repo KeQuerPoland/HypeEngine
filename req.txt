@@ -1,6 +1,11 @@
 flask
 flask_sqlalchemy
-flask_login
+flask_migrate
 discord_webhook
 flask_caching
 flask_mail
+python-dotenv
+coloredlogs
+colorama
+pymysql
+marshmallow
