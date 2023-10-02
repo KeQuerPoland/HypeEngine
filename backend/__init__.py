@@ -11,11 +11,13 @@ from datetime import datetime
 from flask_mail import Mail,Message
 from flask import render_template
 import os
+from flask_bcrypt import Bcrypt
 
 db = SQLAlchemy()
 migrate = Migrate()
 cache = Cache(config={'CACHE_TYPE': 'simple'})
 mail = Mail()
+bcrypt = Bcrypt()
 
 def create_app():
     # Creating WebServer
@@ -59,6 +61,7 @@ def create_app():
     migrate.init_app(app,db)
     cache.init_app(app)
     mail.init_app(app)
+    bcrypt.init_app(app)
     
     # DB Initiation
     from backend.database.users_db import User

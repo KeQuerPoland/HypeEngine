@@ -1,12 +1,15 @@
 from flask import session, g, current_app
 from werkzeug.security import check_password_hash
 from backend.database.users_db import User
+from backend import bcrypt
 
 def login_user(email, password):
     with current_app.app_context():
         user = User.query.filter_by(email=email).first()
-        if user and check_password_hash(user.password, password):
-            if user.account_locked != None:
+        if user and bcrypt.check_password_hash(user.password, password):
+            print(user.account_locked)
+            if user.account_locked == False:
+                print("1")
                 session['user_id'] = user.id
                 return True
         return False

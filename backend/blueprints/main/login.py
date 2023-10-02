@@ -4,6 +4,7 @@ from backend.blueprints.main import main_bp
 from backend import db
 from backend.assets.login_handler import login_user, logout_user
 from backend.database.users_db import User, UserSchema
+from backend import bcrypt
 
 @main_bp.route('/register', methods=['GET','POST'])
 def register():
@@ -15,16 +16,19 @@ def register():
             if not errors:
                 name = request.form.get('name')
                 email = request.form.get('email')
-                password = generate_password_hash(request.form.get('password'))
+                password = bcrypt.generate_password_hash(request.form.get('password')).decode('utf-8')
 
                 user = User(name=name, email=email, password=password)
                 db.session.add(user)
                 db.session.commit()
 
                 login_user(email, password)
-                return redirect(url_for('main.index'))
+                return render_template('register_scc.html')
         return render_template('register.html', errors=errors)
-
+    
+@main_bp.route('/test')
+def test():
+    return render_template('register_scc.html')
 
 @main_bp.route('/login', methods=['GET','POST'])
 def login():
@@ -33,9 +37,9 @@ def login():
             email = request.form.get('email')
             password = request.form.get('password')
             if login_user(email, password):
-                return redirect(url_for('main.index'))
+                return render_template('login_scc.html')
             else:
-                return "Invalid credentials", 401
+                return render_template('login_err.html'), 401
         else:
             return render_template('login.html')
 

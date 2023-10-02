@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pl">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+        <script src="https://kit.fontawesome.com/7725cb343e.js" crossorigin="anonymous"></script>
+
+        <style>
+            body {
+                background-color: #36393f;
+                color: #dcddde;
+                font-family: 'Whitney', sans-serif;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+            }
+            div.com {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                border-left: 5px solid red;
+                padding: 50px;
+                width: 300px;
+                height: 400px;
+                background-color: #2f3136;
+                border-radius: 15px;
+                box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+            }
+            
+            img {
+                width: 100px;
+                height: 100px;
+            }
+            
+            button {
+                margin-top: 20%;
+                width: 90%;
+                padding: 0.5rem 1rem;
+                color:#dcddde; 
+                background-color:#2f3136;
+                border:solid 2px #ff0000; 
+                border-radius:15px;
+                transition:background-color 0.5s;
+                cursor: pointer;
+                height: 100%;
+                width:100%;
+            }
+            
+            button:hover {
+                background-color:#ff0000; 
+            }
+        </style>            
+
+        <div style="border-left: 5px solid red; padding: 20px;" class="com">
+            <img src="https://media.discordapp.net/attachments/1157331303256039485/1158450962323742832/a11675768-0.png?ex=651c4b08&is=651af988&hm=d1e1bce29af716644a5b0bbcf4abaf3694092b6743e23e520cf0c0c65f5245d7&=" alt="Ikona błędu">
+            <p>Invalid data!</p>
+            <a href="{{ url_for('main.login') }}"><button>LOGIN</button></a>
+        </div>
+        
+        
+        
+	</body>
+</html>
