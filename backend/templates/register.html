@@ -7,164 +7,152 @@
 		<link rel="stylesheet" href="style.css" />
 	</head>
 	<body>
+        <script src="https://kit.fontawesome.com/7725cb343e.js" crossorigin="anonymous"></script>
+
         <style>
-            ::selection {
-                background-color: #87CEEB;
-                border-radius: 15px;
-            }
-            
-            * {
-                box-sizing: border-box;
-                margin: 0;
-                padding: 0;
-            }
-            
             body {
-                align-items: center;
-                justify-content: center;
-                background: linear-gradient(
-                    to bottom right,
-                    #87CEEB, 
-                    #FF69B4);
-                font-family: Helvetica, sans-serif;
+                background-color: #36393f;
+                color: #dcddde;
+                font-family: 'Whitney', sans-serif;
                 display: flex;
-                font-size: 24px;
+                justify-content: center;
+                align-items: center;
                 height: 100vh;
-                width: 100vw;
+                margin: 0;
             }
             
             form {
-                background: linear-gradient(
-                    to left,
-                    rgba(255, 255, 255, 0.05),
-                    rgba(255, 255, 255, 0.35)
-                );
-                max-width: 300px;
-                padding: 36px 24px;
-                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                border-left: 5px solid red;
+                padding: 50px;
+                width: 300px;
+                height: 400px;
+                background-color: #2f3136;
                 border-radius: 15px;
-                box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.3);
+                box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
             }
             
             .form__input-container {
                 position: relative;
-                margin-bottom: 32px;
-            }
-            
-            input,
-            button {
-                background: linear-gradient(
-                    to left,
-                    rgba(255, 255, 255, 0.1),
-                    rgba(255, 255, 255, 0.25)
-                );  
-                border: none;
-                border-radius: 18px;
-                box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.3);
-                color: white;
-                font-size: 24px;
-                padding: 12px 24px;
-                outline: none;
-                transition: .3s transform;
-            }
-            
-            input {
+                margin-bottom: 1rem;
                 width: 100%;
             }
             
-            label {
-                color: white;
-                left: 24px;
-                top: 50%;
-                opacity: 0.4;
+            .form__input-container input {
+                width: 100%;
+                border: none;
+                border-bottom: 1px solid #dcddde;
+                background-color: transparent;
+                padding: 0.5rem 0;
+                color: #dcddde;
+            }
+            
+            .form__input-container label {
                 position: absolute;
-                transform: translateY(-50%);
-                transition: left .3s, opacity .3s;
+                top: 0.5rem;
+                left: 0;
+                color: red;
+                font-weight:bold; 
             }
             
-            input:not(:placeholder-shown) + label,
-            input:focus + label {
-                left: 200px;
-                opacity: 0;
+            .form__input-container input:focus {
+                outline: none;
             }
             
-            button:hover {
-                transform: scale(1.1);
+            .form__input-container input:focus + label,
+            .form__input-container input:not(:placeholder-shown) + label {
+                transform: translateY(-100%);
+                transition: 1s;
+            }
+            
+            button {
+                margin-top: 20%;
+                width: 90%;
+                padding: 0.5rem 1rem;
+                color:#dcddde; 
+                background-color:#2f3136;
+                border:solid 2px #ff0000; 
+                border-radius:15px;
+                transition:background-color 0.5s;
                 cursor: pointer;
             }
             
-            .form__spacer {
-                height: 2px;
-                background: rgba(255, 255, 255, 0.55);
-                margin-bottom: 32px;
-                margin: 0 auto 32px;
-                width: 80%;
-                border-radius: 15px;
+            button:hover {
+                background-color:#ff0000; 
             }
             
-            .form__icon {
-                border: solid 3px rgba(255, 255, 255, 0.6);
-                border-radius: 50%;
-                box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.3);
-                height: 72px;
-                width: 72px;
-                margin: 0 auto 24px;
-                position: relative;
-                overflow: hidden;
-            }
             
-            .form__icon:before {
-                background: rgba(255, 255, 255, 0.55);
-                content: "";
-                height: 24px;
-                width: 64px;
-                display: block;
-                position: absolute;
-                bottom: 0;
-                border-radius: 50%;
+            #formImage {
+                width: 100px; 
+                height: 100px; 
+                object-fit: cover; 
+                border-radius: 50%; 
+                margin-bottom: 10%;
             }
-            
-            .form__icon:after {
-                background: rgba(255, 255, 255, 0.55);
-                content: "";
-                height: 24px;
-                width: 24px;
-                left: 50%; 
-                transform: translateX(-50%);
-                display: block;
-                position: absolute;
-                bottom: 50%;
-                border-radius: 50%;
-            }
-            
-            /* #c2eeff, #1696ff */
 
-            .form__input-container p {
-                font-size: 15px;
-                color: red
+            .error-icon {
+                color: white;
+                position: absolute;
+                right: 5px;
+                top: 50%; /* Centruje ikonę względem wysokości */
+                transform: translateY(-50%); /* Dostosowuje pozycję ikony */
+                font-size: 20px;
+                padding: 2px;
             }
+
+            label.active {
+                transform: translateY(-100%);
+            }
+            
+            label.error {
+                transform: translateY(-100%);
+            }
+            
+            
         </style>
 
         <form autocomplete="off" method="POST">
             <div class="form__icon" aria-hidden="true"></div>
+            <img id="formImage" src="https://media.discordapp.net/attachments/1157331303256039485/1157676120263635014/HypeEngine_smaller-removebg-preview.png?ex=651b73a7&is=651a2227&hm=74b430cf823c03f95e73f0cd689d69e10b7145b01b7e8bc2e8967ea606cae215&=" alt="Zdjęcie formularza">
             <div class="form__input-container" >
-                <p>{{ errors.name or '' }}</p>
                 <input required="true" id="name" name="name" type="name" placeholder=" " />
-                <label for="name">Nickname</label>
+                {% if 'name' in errors %}
+                    <span class="error-icon" data-error="{{ errors.name[0] }}"><i class="fas fa-exclamation-circle"></i></span>
+                {% endif %}
+                <label for="name" {% if 'name' in errors %}class="error"{% endif %}>Nickname</label>
             </div>
             <div class="form__input-container" >
-                <p>{{ errors.email or '' }}</p>
                 <input required="true" id="email" type="email"  name="email" placeholder=" " />
-                <label for="email">Email</label>
+                {% if 'email' in errors %}
+                    <span class="error-icon" data-error="{{ errors.email[0] }}"><i class="fas fa-exclamation-circle"></i></span>
+                {% endif %}
+                <label for="email" {% if 'email' in errors %}class="error"{% endif %}>Email</label>
             </div>
             <div class="form__input-container">
-                <p>{{ errors.password or '' }}</p>
                 <input required="true" id="password" type="password" name="password" placeholder=" " />
-                <label for="password">Password</label>
+                {% if 'password' in errors %}
+                    <span class="error-icon" data-error="{{ errors.password[0] }}"><i class="fas fa-exclamation-circle"></i></span>
+                {% endif %}
+                <label for="password" {% if 'password' in errors %}class="error"{% endif %}>Password</label>
             </div>
             <div class="form__spacer" aria-hidden="true"></div>
             <button>Register</button>
         </form>
+        
+        
+        <script>
+            document.querySelectorAll('.error-icon').forEach(function(errorElement) {
+                var errorMessage = errorElement.getAttribute('data-error');
+                if (errorMessage) {
+                    errorElement.textContent = <i class="fa-solid fa-exclamation" style="color: #ff0000; background-color: red;"></i>;
+                    errorElement.title = errorMessage;
+                }
+            });
+        </script>
+        
         
 	</body>
 </html>
