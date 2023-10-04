@@ -25,10 +25,6 @@ def register():
                 login_user(email, password)
                 return render_template('register_scc.html')
         return render_template('register.html', errors=errors)
-    
-@main_bp.route('/test')
-def test():
-    return render_template('register_scc.html')
 
 @main_bp.route('/login', methods=['GET','POST'])
 def login():

@@ -2,14 +2,33 @@ from flask import session, g, current_app
 from werkzeug.security import check_password_hash
 from backend.database.users_db import User
 from backend import bcrypt
+from functools import wraps
+from datetime import datetime, timedelta
+
+def login_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if 'user_id' not in session:
+            return "Please log in first", 401
+        return f(*args, **kwargs)
+    return decorated_function
+
+def refresh_login(minutes):
+    def decorator(f):
+        @wraps(f)
+        def decorated_function(*args, **kwargs):
+            last_login = session.get('last_login')
+            if last_login is None or datetime.now() - last_login > timedelta(minutes=minutes):
+                return "Please log in again", 401
+            return f(*args, **kwargs)
+        return decorated_function
+    return decorator
 
 def login_user(email, password):
     with current_app.app_context():
         user = User.query.filter_by(email=email).first()
         if user and bcrypt.check_password_hash(user.password, password):
-            print(user.account_locked)
             if user.account_locked == False:
-                print("1")
                 session['user_id'] = user.id
                 return True
         return False

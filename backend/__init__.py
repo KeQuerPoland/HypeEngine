@@ -6,7 +6,6 @@ import logging,coloredlogs
 from flask.logging import default_handler
 from flask_caching import Cache
 from logging.config import dictConfig
-from backend.colors import gray,red,yellow,green
 from datetime import datetime
 from flask_mail import Mail,Message
 from flask import render_template
@@ -29,9 +28,11 @@ def create_app():
     # BluePrint Initiation
     from backend.blueprints.main import main_bp
     from backend.blueprints.custom_handler import custom_bp
+    from backend.blueprints.panel import panel_bp
     
     app.register_blueprint(main_bp)
     app.register_blueprint(custom_bp)
+    app.register_blueprint(panel_bp, url_prefix='/panel')
     
     # Logging Init
     werkzeug_logger = logging.getLogger('werkzeug')
@@ -110,11 +111,12 @@ def create_app():
     @app.before_request
     def log_request_info():
         if not request.endpoint == None:
-            try:
-                log(f'Page Entry',"#3A94EE")
-            except Exception as e:
-                raise e
-            app.logger.info('Page Entry - IP: %s, Endpoint: %s', request.remote_addr, request.endpoint)
+            if request.endpoint != 'static':
+                try:
+                    log(f'Page Entry',"#3A94EE")
+                except Exception as e:
+                    raise e
+                app.logger.info('Page Entry - IP: %s, Endpoint: %s', request.remote_addr, request.endpoint)
     
     # Watermark Initialization
     @app.after_request

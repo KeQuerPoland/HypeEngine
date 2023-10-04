@@ -2,6 +2,7 @@ from backend import db
 from datetime import datetime,timedelta
 from marshmallow import Schema, fields, validate
 from backend.validators.date import validate_not_future_date
+from backend.database.parmissions_db import user_roles
 
 class User(db.Model):
     __name__ = 'users'
@@ -24,6 +25,10 @@ class User(db.Model):
     email_verifed   =   db.Column(db.Boolean,nullable=False,default=False)
     account_locked  =   db.Column(db.Boolean,nullable=False,default=False)
     is_active       =   db.Column(db.Boolean,nullable=False,default=True)
+    
+    # Permissions & Roles
+    
+    roles = db.relationship('Role', secondary=user_roles, backref='users')
     
     @property
     def is_authenticated(self):
