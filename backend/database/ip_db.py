@@ -1,8 +1,11 @@
-from backend import db
+from datetime import datetime, timedelta
+
 from flask import current_app
-from datetime import datetime,timedelta
 from marshmallow import Schema, fields, validate
+
+from backend import db
 from backend.validators.date import validate_not_future_date
+
 
 class IP(db.Model):
     id = db.Column(db.Integer, primary_key=True)

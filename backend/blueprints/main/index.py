@@ -1,6 +1,8 @@
-from flask import request, jsonify, current_app,render_template
-from backend.blueprints.main import main_bp
+from flask import current_app, jsonify, render_template, request
+
 from backend import db
+from backend.blueprints.main import main_bp
+
 
 @main_bp.route('/')
 def index():

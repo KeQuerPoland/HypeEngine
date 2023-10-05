@@ -1,8 +1,10 @@
-from flask import request, jsonify, current_app,render_template,abort
-from backend.blueprints.custom_handler import custom_bp
+from flask import abort, current_app, jsonify, render_template, request
+
 from backend import db
-from backend.database.pages_db import Pages
 from backend.assets.global_handler import get_all_routes
+from backend.blueprints.custom_handler import custom_bp
+from backend.database.pages_db import Pages
+
 
 @custom_bp.route('/<path:path>')
 def catch_all(path):

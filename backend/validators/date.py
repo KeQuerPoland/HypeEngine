@@ -1,5 +1,7 @@
-from marshmallow import ValidationError
 from datetime import datetime
+
+from marshmallow import ValidationError
+
 
 def validate_not_future_date(date):
     if date > datetime.now():
