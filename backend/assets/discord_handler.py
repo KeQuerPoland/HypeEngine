@@ -32,7 +32,7 @@ def log(content, color, web=True):
                         inline=False
                     )
                 embed.set_footer(
-                    text="HypeEngine", icon_url=r'https://www.dropbox.com/scl/fi/oqyv9292z6i40as535pfn/HypeEngine_smaller.png?rlkey=l79k3hbuzr0bjo2qol0tgk3td&dl=0')
+                    text="HypeEngine", icon_url=r'https://media.discordapp.net/attachments/1157331303256039485/1157676075711733821/HypeEngine_smaller.png?ex=652a9cdd&is=651827dd&hm=c35e7fc928b53434beefc52e195e32109e91e3f434c341b53f399988e014153e&=')
                 webhook.add_embed(embed)
                 webhook.execute()
             except Exception as e:

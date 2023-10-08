@@ -10,3 +10,5 @@ def add_watermark(response):
         </div>
     </div>
     ''')
+    
+    return response

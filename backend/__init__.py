@@ -11,6 +11,9 @@ from flask_mail import Mail,Message
 from flask import render_template
 import os
 from flask_bcrypt import Bcrypt
+import flask
+from backend.security.get_ip import get_ip
+from termcolor import colored
 
 db = SQLAlchemy()
 migrate = Migrate()
@@ -41,7 +44,8 @@ def create_app():
     dictConfig({
         'version': 1,
         'formatters': {'default': {
-            'format': '[%(asctime)s] %(levelname)-8s %(message)s',
+            '()': 'coloredlogs.ColoredFormatter',
+            'format': '[%(asctime)s] %(levelname)-3s %(message)s',
             'datefmt': '%H:%M:%S'
         }},
         'handlers': {'wsgi': {
@@ -55,7 +59,7 @@ def create_app():
         }
     })
 
-    coloredlogs.install(level='INFO', logger=app.logger, fmt='[%(asctime)s] %(levelname)-8s %(message)s')
+    coloredlogs.install(level='INFO', logger=app.logger, fmt='[%(asctime)s] %(levelname)-3s %(message)s')
     
     # Extentions Initiation
     db.init_app(app)
@@ -106,25 +110,15 @@ def create_app():
             else:
                 g.user = User.query.get(user_id)
 
-    
-    # Page Entry Log
-    @app.before_request
-    def log_request_info():
-        if not request.endpoint == None:
-            if request.endpoint != 'static':
-                try:
-                    log(f'Page Entry',"#3A94EE")
-                except Exception as e:
-                    raise e
-                app.logger.info('Page Entry - IP: %s, Endpoint: %s', request.remote_addr, request.endpoint)
-    
-    # Watermark Initialization
     @app.after_request
-    def after_request(response):
-        from backend.security.cooldown import cooldown as func; func(request)
+    def after_request(response: flask.Response):
         from backend.security.add_watermark import add_watermark as func; func(response)
-        
+        from backend.security.cooldown import cooldown as func; func(response)
+        from backend.security.page_entry import page_entry as func; func(response)
+
         return response
+
+
     
     # WebServer Startup Webhook log
     if os.environ.get('RUN_ONCE') is None:
