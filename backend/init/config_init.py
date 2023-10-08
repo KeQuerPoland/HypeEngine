@@ -13,6 +13,8 @@ with current_app.app_context():
     Config.add_value_or_pass('MAIL_USE_SSL', False)
     Config.add_value_or_pass('MAIL_DEFAULT_SENDER', '')
     Config.add_value_or_pass('MAIL_SERVER_DOMAIN', '')
+    Config.add_value_or_pass('COOLDOWN_ENABLED', True)
+    Config.add_value_or_pass('COOLDOWN_RATE', '5')
     
     # Apply Global Config
     current_app.config['MAIL_SERVER'] = Config.get_by_name('MAIL_SERVER')
