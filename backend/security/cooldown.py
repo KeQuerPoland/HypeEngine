@@ -1,4 +1,4 @@
-from flask import current_app, jsonify, Response
+from flask import current_app, jsonify, Response, render_template
 from backend.security.get_ip import get_ip
 from backend.assets.login_handler import current_user
 import time
@@ -25,7 +25,7 @@ def cooldown(response: Response):
             elif entry['count'] >= rate:
                 remaining_time = max(0, int(entry['timestamp'] + rate - current_time))
                 response.status_code = 429
-                response.data = f"Cooldown in effect, try again in {remaining_time} seconds"
+                response.data = render_template(cfg.get_by_name('COOLDOWN_FILE'), remaining_time=remaining_time)
                 return response
             else:
                 entry['count'] += 1

@@ -15,6 +15,7 @@ with current_app.app_context():
     Config.add_value_or_pass('MAIL_SERVER_DOMAIN', '')
     Config.add_value_or_pass('COOLDOWN_ENABLED', True)
     Config.add_value_or_pass('COOLDOWN_RATE', '5')
+    Config.add_value_or_pass('COOLDOWN_FILE', 'errors/cooldown.html')
     
     # Apply Global Config
     current_app.config['MAIL_SERVER'] = Config.get_by_name('MAIL_SERVER')

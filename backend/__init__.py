@@ -99,16 +99,6 @@ def create_app():
             from backend.assets.login_handler import current_user
             return dict(current_user=current_user())
 
-        
-    @app.before_request
-    def load_logged_in_user():
-        with app.app_context():
-            user_id = session.get('user_id')
-
-            if user_id is None:
-                g.user = None
-            else:
-                g.user = User.query.get(user_id)
 
     @app.after_request
     def after_request(response: flask.Response):
