@@ -1,5 +1,6 @@
-from backend.database.config_db import Config
 from flask import current_app
+
+from backend.database.config_db import Config
 
 with current_app.app_context():
 
@@ -25,3 +26,7 @@ with current_app.app_context():
     current_app.config['MAIL_USE_TLS'] = Config.get_by_name('MAIL_USE_TLS')
     current_app.config['MAIL_DEFAULT_SENDER'] = Config.get_by_name('MAIL_DEFAULT_SENDER')
     current_app.config['MAIL_SERVER_DOMAIN'] = Config.get_by_name('MAIL_SERVER_DOMAIN')
+    
+    # Beta
+
+    current_app.config['SECURITY_PASSWORD_SALT'] = 'dwdwJskkd66776wwqnnfdd8893kdss'

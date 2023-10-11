@@ -24,8 +24,7 @@ class User(db.Model):
     token = db.Column(db.String(300), nullable=True)
 
     # Account Details
-    creation_date = db.Column(
-        db.DateTime, nullable=False, default=datetime.now()+timedelta(hours=2))
+    creation_date = db.Column(db.DateTime, nullable=False, default=datetime.now()+timedelta(hours=2))
     email_verifed = db.Column(db.Boolean, nullable=False, default=False)
     account_locked = db.Column(db.Boolean, nullable=False, default=False)
     is_active = db.Column(db.Boolean, nullable=False, default=True)
