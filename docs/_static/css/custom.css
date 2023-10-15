@@ -1,6 +1,6 @@
 @import '../alabaster.css';
 @import 'theme.css';
 
-.wy-nav-top {
+body {
     background-color: black !important;
 }
