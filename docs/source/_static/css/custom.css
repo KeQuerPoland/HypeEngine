@@ -2,10 +2,9 @@
 @import 'theme.css'; 
 
 * {
-    background-color: rgb(15, 14, 14) !important;
-    color: red !important;
+    color: red;
 }
 
-.wy-nav-content {
+.wy-nav-content-wrap {
     background-color: rgb(15, 14, 14) !important;
 }
