@@ -1,0 +1,5 @@
+
+[project]
+name = "HypeEngine"
+authors = [{name = "KeQuer", email = "kequer@hype-engine.pl"}]
+dynamic = ["version", "description"]
