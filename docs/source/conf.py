@@ -40,4 +40,4 @@ html_css_files = [
     'custom.css',
 ]
 
-html_style = 'custom.css'
+#html_style = 'custom.css'
