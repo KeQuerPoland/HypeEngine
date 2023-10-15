@@ -3,7 +3,7 @@
 # -- Project information
 
 project = 'HypeEngine'
-copyright = '2023, HypeEngime'
+copyright = '2023, HypeEngine'
 author = 'KeQuer'
 
 release = '1'
