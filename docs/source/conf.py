@@ -6,7 +6,7 @@ project = 'HypeEngine'
 copyright = '2023, HypeEngine'
 author = 'KeQuer'
 
-release = '1'
+release = ''
 version = '0.1.0'
 
 # -- General configuration
@@ -41,3 +41,11 @@ html_css_files = [
 ]
 
 html_style = 'css/custom.css'
+
+html_theme_path = 'html/theme.html'
+
+html_title = 'HypeEngine Docs'
+
+html_show_sourcelink = True
+
+html_show_sphinx = False
