@@ -37,7 +37,7 @@ epub_show_urls = 'footnote'
 html_static_path = ['_static']
 
 html_css_files = [
-    'css/custom.css',
+    'custom.css',
 ]
 
-html_style = 'css/custom.css'
+html_style = 'custom.css'
