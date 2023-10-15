@@ -50,3 +50,7 @@ html_title = 'HypeEngine Docs'
 html_show_sourcelink = True
 
 html_show_sphinx = False
+
+html_favicon = 'logo.ico'
+
+html_logo = 'logo.png'
