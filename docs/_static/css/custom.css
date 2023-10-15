@@ -1,3 +1,6 @@
+@import '../alabaster.css';
+@import 'theme.css';
+
 html {
     background-color: black !important;
 }
