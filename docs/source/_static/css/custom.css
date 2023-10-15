@@ -9,6 +9,10 @@ a:visited {
     color:red
 }
 
+.commit {
+    display: none;
+}
+
 .wy-nav-content-wrap, .wy-nav-content {
     background-color: rgb(15, 14, 14) !important;
 }
