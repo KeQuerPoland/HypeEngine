@@ -16,3 +16,7 @@ a:visited {
 .wy-nav-content-wrap, .wy-nav-content {
     background-color: rgb(15, 14, 14) !important;
 }
+
+.logo {
+    width: 30px !important;
+}
