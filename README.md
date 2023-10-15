@@ -4,7 +4,7 @@
 > **Open Source** - You can change everything!<br/>
 > **Easy** - Quick and easy setup<br/>
 > **Discord Integration** - Webhoocks Logs & More!<br/>
-> **Inteligent Cooldown** - Block DDOS attacks!<br/>
+> **Inteligent Cooldown** - Cooldown system into engine! <br/>
 > **IP logger (optional)** - Colect user data - geolocalisation and more!<br/>
 > **More...**<br/>
 
