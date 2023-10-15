@@ -1,10 +1,6 @@
 @import '../alabaster.css'; 
 @import 'theme.css'; 
 
-* {
-    color: red;
-}
-
 .wy-nav-content-wrap, .wy-nav-content {
     background-color: rgb(15, 14, 14) !important;
 }

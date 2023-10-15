@@ -35,6 +35,7 @@ html_theme = 'sphinx_rtd_theme'
 epub_show_urls = 'footnote' 
 
 html_static_path = ['_static']
+templates_path = ['_templates']
 
 html_css_files = [
     'css/custom.css',
@@ -42,7 +43,7 @@ html_css_files = [
 
 html_style = 'css/custom.css'
 
-html_theme_path = 'html/theme.html'
+html_theme_path = 'theme.html'
 
 html_title = 'HypeEngine Docs'
 
