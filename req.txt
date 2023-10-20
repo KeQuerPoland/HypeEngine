@@ -1,0 +1,13 @@
+flask
+flask-sqlalchemy
+flask_migrate
+python-dotenv
+coloredlogs
+flask_caching
+flask_mail
+flask_bcrypt
+colorama
+speedtest
+pymysql
+marshmallow
+cryptography

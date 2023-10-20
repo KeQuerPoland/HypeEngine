@@ -1,7 +1,6 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-from config import Config
 import logging,coloredlogs
 from flask_caching import Cache
 from logging.config import dictConfig
@@ -73,6 +72,7 @@ def create_app():
     app = Flask(__name__,static_folder=static_folder,template_folder=template_folder)
     
     # Config Initialization
+    from config import Config
     app.config.from_object(Config)
     
     with app.app_context():
@@ -125,11 +125,14 @@ def create_app():
                 return dict(current_user=current_user())
 
 
+        @app.before_request
+        def before_request():
+            from security.cooldown import cooldown as func; return func() or None;
+
         # After Request Security
         @app.after_request
         def after_request(response: flask.Response):
             from security.add_watermark import add_watermark as func; func(response)
-            from security.cooldown import cooldown as func; func(response)
             from security.page_entry import page_entry as func; func(response)
 
             return response

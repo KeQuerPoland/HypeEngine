@@ -1,6 +1,6 @@
 from flask import current_app
 from backend import db
-
+from datetime import datetime
 
 class Config(db.Model):
     __name__ = 'config'
@@ -37,3 +37,4 @@ class Config(db.Model):
                 new_config_item = Config(name=name, value=value)
                 db.session.add(new_config_item)
                 db.session.commit()
+                
