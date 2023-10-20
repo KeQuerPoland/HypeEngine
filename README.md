@@ -4,12 +4,12 @@
 > **Open Source** - You can change everything!<br/>
 > **Easy** - Quick and easy setup<br/>
 > **Discord Integration** - Webhoocks Logs & More!<br/>
-> **Inteligent Cooldown** - Block DDOS attacks!<br/>
+> **Inteligent Cooldown** - Hype Shield Future.<br/>
 > **IP logger (optional)** - Colect user data - geolocalisation and more!<br/>
 > **More...**<br/>
 
 ## 🛡️ AUTHORS:
-> [![KeQuer](https://img.shields.io/badge/KeQuer-Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com/users/1063760147287117834) <br/>
+> ![KeQuer](https://img.shields.io/badge/KeQuer-Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white) <br/>
 > [![cactusiuu](https://img.shields.io/badge/cactusiuu-Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com/users/1041362096232861826) <br/>
 > [![_wiktoreq_12](https://img.shields.io/badge/__wiktoreq__12-Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com/users/788421107564806195) <br/>
 
