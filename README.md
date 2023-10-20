@@ -9,7 +9,7 @@
 > **More...**<br/>
 
 ## 🛡️ AUTHORS:
-> ![KeQuer](https://img.shields.io/badge/KeQuer-Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white) <br/>
+> [![](https://img.shields.io/badge/KeQuer-Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com/users/1063760147287117834) <br/>
 > [![cactusiuu](https://img.shields.io/badge/cactusiuu-Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com/users/1041362096232861826) <br/>
 > [![_wiktoreq_12](https://img.shields.io/badge/__wiktoreq__12-Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com/users/788421107564806195) <br/>
 
