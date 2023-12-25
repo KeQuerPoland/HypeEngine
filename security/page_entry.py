@@ -18,3 +18,5 @@ def page_entry(response: Response):
             if request.endpoint != 'static':
                 log(f'Page Entry',"#3A94EE")
     """
+
+    

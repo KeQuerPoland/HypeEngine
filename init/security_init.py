@@ -16,7 +16,7 @@ def init():
         adm_role = Role.create_role("Beta", "Beta")
         adm_role.add_permission('AccessOffline')
 
-        user = User.query.filter_by(dsc_id="1063760147287117834").first()
+        user = User.query.filter_by(id="1").first()
         if user:
             role = Role.query.filter_by(name="Admin").first()
             if role:
@@ -27,22 +27,6 @@ def init():
                     print("User already has the 'Admin' role")
             else:
                 raise Exception("Role Admin not found")
-
-        else:
-            raise Exception("User not found")
-        
-        
-        user = User.query.filter_by(dsc_id="1138872082793517190").first()
-        if user:
-            role = Role.query.filter_by(name="Beta").first()
-            if role:
-                if role not in user.roles:
-                    user.roles.append(role)
-                    db.session.commit()
-                else:
-                    print("User already has the 'Beta' role")
-            else:
-                raise Exception("Role Beta not found")
 
         else:
             raise Exception("User not found")

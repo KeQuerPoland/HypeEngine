@@ -33,7 +33,7 @@ def register():
                 confirm_url = url_for('main.confirm_email', token=token, _external=True)
                 html = render_template('mails/activate.html', confirm_url=confirm_url)
                 subject = "Please confirm your email"
-                send_email(user.email, subject, html)
+                #send_email(user.email, subject, html)
 
                 login_user(email, password)
                 return render_template('register_scc.html')

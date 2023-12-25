@@ -2,11 +2,12 @@ from flask import current_app, jsonify, render_template, request
 
 from backend import db
 from blueprints.main import main_bp
+from config import version
 
 
 @main_bp.route('/')
 def index():
-    return render_template('main/index.html')
+    return render_template('main/index.html', version=version)
 
 @main_bp.route('/test')
 def test():

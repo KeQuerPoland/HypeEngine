@@ -1,0 +1,26 @@
+{
+    "hypeengine": {
+      "version": 1.0,
+      "dataset": 1.0
+    },
+    "page": {
+      "object": {
+        "id": 1,
+        "type": "h1",
+        "style": "color: red;",
+        "visible": true
+      },
+      "object2": {
+        "id": 2,
+        "type": "h1",
+        "style": "color: red;",
+        "visible": true
+      },
+      "object3": {
+        "id": 3,
+        "type": "h1",
+        "style": "color: red;",
+        "visible": false
+      }
+    }
+  }
