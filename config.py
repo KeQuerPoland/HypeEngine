@@ -9,11 +9,14 @@ local=True
 
 class Config():
     SECRET_KEY=os.environ.get('SECRET_KEY')
-    SQLALCHEMY_DATABASE_URI=os.environ.get('SQLALCHEMY_DATABASE_URI')
     SQLALCHEMY_TRACK_MODIFICATIONS=False
     DEBUG=True # If you not edit a source code - replace it to False
     
-    # More in DB.
+    if DEBUG == False:
+        SQLALCHEMY_DATABASE_URI=os.environ.get('SQLALCHEMY_DATABASE_URI')
+    elif DEBUG == True:
+        ldp = base_dir / 'storage' / 'data.db'
+        SQLALCHEMY_DATABASE_URI = "sqlite:///"+f"{ldp}"
 
     
 # HypeEngine Temp Config

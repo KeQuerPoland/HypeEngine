@@ -28,26 +28,6 @@ template_folder=os.path.join(project_root, 'public\\html')
 
 cli = sys.modules['flask.cli']
 
-def run_speedtest():
-    st = speedtest.Speedtest(secure=True)
-    download_speed = st.download()
-    upload_speed = st.upload()
-
-    banner = f"""
-{colorama.Fore.RED}{'*' * 50}
-    {colorama.Style.BRIGHT}
-    {colorama.Fore.RED}HYPE{colorama.Fore.WHITE}ENGINE - Welcome!{colorama.Fore.RED}
-
-    {colorama.Fore.CYAN}STATUS:    {colorama.Fore.GREEN}ONLINE{colorama.Fore.RED} 
-    {colorama.Fore.CYAN}DB STATUS: {colorama.Fore.GREEN}CONNECTED{colorama.Fore.RED}
-    {colorama.Fore.CYAN}DOWNLOAD:  {colorama.Fore.GREEN}{download_speed / 1e6:.2f} Mbps{colorama.Fore.RED}
-    {colorama.Fore.CYAN}UPLOAD:    {colorama.Fore.GREEN}{upload_speed / 1e6:.2f} Mbps{colorama.Fore.RED}{colorama.Style.RESET_ALL}
-
-{colorama.Fore.RED}{'*' * 50}{colorama.Style.RESET_ALL}
-"""
-    os.system('cls')
-    print(banner)
-
 def show_banner(*args, **kwargs):
     os.system('cls')
     banner = f"""
@@ -57,14 +37,10 @@ def show_banner(*args, **kwargs):
 
     {colorama.Fore.CYAN}STATUS:    {colorama.Fore.GREEN}ONLINE{colorama.Fore.RED} 
     {colorama.Fore.CYAN}DB STATUS: {colorama.Fore.GREEN}CONNECTED{colorama.Fore.RED}
-    {colorama.Fore.CYAN}DOWNLOAD:  {colorama.Fore.YELLOW}IN PROCESS...{colorama.Fore.RED}
-    {colorama.Fore.CYAN}UPLOAD:    {colorama.Fore.YELLOW}IN PROCESS...{colorama.Fore.RED}
 
 {'*' * 50}{colorama.Style.RESET_ALL}
 """
     cli.show_server_banner = lambda *x:click.echo(banner)
-    a = threading.Thread(target=run_speedtest)
-    a.start()
     
 
 def create_app():
